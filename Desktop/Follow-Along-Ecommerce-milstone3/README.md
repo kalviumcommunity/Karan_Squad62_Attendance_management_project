@@ -18,4 +18,11 @@
 1. Express: This is a web framework for Node.js, this was set up using the code (npm install express).
 2. Mongoose: This is mainly used to config the database with the backend, this was set up using the code (npm install mongoose).
 3. Cors: This allows the web applications to access resources from different domains, this was set up using the code (npm install cors).
-4. Nodemon: It helps in monitoring and a very faster development of Node.js, this was set up using the code(npm install nodemon).# S62_JOKES_MARKET
+4. Nodemon: It helps in monitoring and a very faster development of Node.js, this was set up using the code(npm install nodemon).
+
+
+## Milestone 3: Project Overview
+ 1. Set up specified folders which is used for the backend.
+ 2. Initialized and configured the Node.js server
+ 3. Connected to the MongoDB
+ 4. Provided clear error messages for debuggin
