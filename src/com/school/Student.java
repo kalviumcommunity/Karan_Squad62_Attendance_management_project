@@ -11,7 +11,14 @@ public class Student {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
    
+    public int getStudentId() {
+        return studentId;
+    }
+    
     public void displayDetails() {
         System.out.println("Student ID: " + this.studentId + ", Name: " + this.name);
     }
