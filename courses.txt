@@ -1,0 +1,2 @@
+Course,101,Intro to Programming
+Course,102,Linear Algebra

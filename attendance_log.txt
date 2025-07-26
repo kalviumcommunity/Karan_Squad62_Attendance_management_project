@@ -1,0 +1,2 @@
+AttendanceRecord,1,101,Present
+AttendanceRecord,2,102,Absent
