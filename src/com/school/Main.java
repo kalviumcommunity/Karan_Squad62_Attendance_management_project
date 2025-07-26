@@ -1,24 +1,28 @@
 package com.school;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("--- School Attendance System ---");
 
-        Student[] students = new Student[2];
-        students[0] = new Student("Alice Smith", "Grade 10");
-        students[1] = new Student("Bob Johnson", "Grade 11");
+        // Step 1: Create and populate ArrayList<Student>
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student("Alice Smith", "Grade 10"));
+        students.add(new Student("Bob Johnson", "Grade 11"));
 
-        Course[] courses = new Course[2];
-        courses[0] = new Course("Intro to Programming");
-        courses[1] = new Course("Linear Algebra");
+        // Step 2: Create and populate ArrayList<Course>
+        ArrayList<Course> courses = new ArrayList<>();
+        courses.add(new Course("Intro to Programming"));
+        courses.add(new Course("Linear Algebra"));
 
+        // Step 3: Display Students
         System.out.println("\nRegistered Students:");
         for (Student student : students) {
-            if (student != null) student.displayDetails();
+            student.displayDetails();
         }
+
+        // Step 4: Teacher and Staff
         Teacher teacher = new Teacher("Dr. Jane Doe", "Mathematics");
         Staff staff = new Staff("Michael Scott", "Administrator");
 
@@ -28,16 +32,26 @@ public class Main {
         System.out.println("\nStaff Member:");
         staff.displayDetails();
 
+        // Step 5: Display Courses
         System.out.println("\nAvailable Courses:");
         for (Course course : courses) {
-            if (course != null) course.displayDetails();
+            course.displayDetails();
         }
+
+        // Step 6: Attendance Records
         System.out.println("\nSession 2: Core Domain Modelling Complete.");
         ArrayList<AttendanceRecord> attendanceLog = new ArrayList<>();
-        attendanceLog.add(new AttendanceRecord(students[0].getId(), courses[0].getCourseId(), "Present"));
-        attendanceLog.add(new AttendanceRecord(students[1].getId(), courses[1].getCourseId(), "Absent"));
+        attendanceLog.add(new AttendanceRecord(students.get(0).getId(), courses.get(0).getCourseId(), "Present"));
+        attendanceLog.add(new AttendanceRecord(students.get(1).getId(), courses.get(1).getCourseId(), "Absent"));
+
         for (AttendanceRecord record : attendanceLog) {
-            if (record != null) record.displayDetails();
+            record.displayDetails();
         }
+
+        // Step 7: Save data to files using FileStorageService
+        FileStorageService storage = new FileStorageService();
+        storage.saveData(students, "students.txt");
+        storage.saveData(courses, "courses.txt");
+        storage.saveData(attendanceLog, "attendance_log.txt");
     }
 }

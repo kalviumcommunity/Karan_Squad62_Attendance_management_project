@@ -1,40 +1,34 @@
 package com.school;
 
-public class AttendanceRecord {
-    private
-    int studentId;
-    int courseId;
-    String status; 
-
-    public AttendanceRecord(int studentId, int courseId, String status) {
-        this.studentId = studentId;
-        this.courseId = courseId;
-    
-    
-    if("Present".equalsIgnoreCase(status) || "Absent".equalsIgnoreCase(status)) 
-    {
-        this.status = status; 
-    } 
-    else 
-    {
-        this.status = "Invalid"; 
-        System.out.println("Invalid attendance status provided");
+public class AttendanceRecord implements Storable {
+    private int StudentId;
+    private int CourseId;
+    private String status;
+    AttendanceRecord(int StudentId, int CourseId, String status) {
+        this.StudentId = StudentId;
+        this.CourseId = CourseId;
+        if (!"Present".equalsIgnoreCase(status) && !"Absent".equalsIgnoreCase(status)) {
+            this.status="Invalid";
+        }
+        else{
+            this.status = status;
+        }
     }
-}
-    
-    public  int getStudentId() {
-        return studentId;
+
+    @Override
+    public String toDataString() {
+        return "AttendanceRecord," + StudentId + "," + CourseId + "," + status;
+    }
+    public int getStudentId() {
+        return StudentId;
     }
     public int getCourseId() {
-        return courseId;
-
+        return CourseId;
     }
     public String getStatus() {
         return status;
     }
-
-    public void displayDetails()
-    {
-        System.out.println("Attendance: Student ID: " + studentId + ", Course ID: " + courseId  + status);
+    public void displayDetails() {
+        System.out.println("Student ID: " + this.StudentId + ", Course ID: " + this.CourseId + ", Status: " + this.status);
     }
 }
