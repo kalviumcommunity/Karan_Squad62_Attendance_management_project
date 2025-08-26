@@ -1,0 +1,16 @@
+html, body {
+  background-color: #000; /* full page black */
+  color: #fff; /* text readable on black */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #000; /* keep root black */
+  min-height: 100vh; /* make sure it fills screen height */
+}
