@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #818cf8;
+    --color-primary-dark: #6366f1;
+    --color-accent: #a78bfa;
+    --color-surface: rgba(255, 255, 255, 0.03);
+    --color-surface-hover: rgba(255, 255, 255, 0.06);
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-border-hover: rgba(255, 255, 255, 0.15);
+  }
+
+  body {
+    background: #0a0a0f;
+    color: #e2e8f0;
+  }
+
+  ::selection {
+    background: rgba(99, 102, 241, 0.3);
+    color: #fff;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer components {
+  /* ─── Buttons ────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/50 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:from-indigo-500 hover:to-violet-500 active:from-indigo-700 active:to-violet-700;
+  }
+  .btn-secondary {
+    @apply btn bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:text-white active:bg-white/5;
+  }
+  .btn-danger {
+    @apply btn bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20 hover:border-red-500/30 hover:text-red-300;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-gray-400 hover:text-white hover:bg-white/5;
+  }
+
+  /* ─── Inputs ─────────────────────────────────── */
+  .input {
+    @apply w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 shadow-sm transition-all duration-200 focus:border-indigo-500/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:bg-white/[0.07];
+  }
+
+  /* ─── Cards ──────────────────────────────────── */
+  .card {
+    @apply rounded-xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm;
+  }
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] hover:shadow-lg hover:shadow-indigo-500/[0.03];
+  }
+  .card-glow {
+    @apply card-hover hover:shadow-xl hover:shadow-indigo-500/[0.08];
+  }
+
+  /* ─── Glass effect ───────────────────────────── */
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.06];
+  }
+
+  /* ─── Badge ──────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-success {
+    @apply badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20;
+  }
+  .badge-neutral {
+    @apply badge bg-white/5 text-gray-400 border border-white/10;
+  }
+
+  /* ─── Prose content ──────────────────────────── */
+  .prose-content h1 {
+    @apply text-3xl font-bold mt-8 mb-4 text-white;
+  }
+  .prose-content h2 {
+    @apply text-2xl font-semibold mt-6 mb-3 text-white;
+  }
+  .prose-content h3 {
+    @apply text-xl font-semibold mt-5 mb-2 text-white;
+  }
+  .prose-content p {
+    @apply leading-7 mb-4 text-gray-300;
+  }
+  .prose-content ul {
+    @apply list-disc list-inside mb-4 text-gray-300;
+  }
+  .prose-content a {
+    @apply text-indigo-400 hover:text-indigo-300 underline underline-offset-2;
+  }
+  .prose-content blockquote {
+    @apply border-l-2 border-indigo-500/30 pl-4 italic text-gray-400 my-4;
+  }
+  .prose-content code {
+    @apply bg-white/5 px-1.5 py-0.5 rounded text-sm text-indigo-300 font-mono;
+  }
+  .prose-content pre {
+    @apply bg-white/[0.03] border border-white/[0.06] rounded-lg p-4 overflow-x-auto my-4;
+  }
+  .prose-content pre code {
+    @apply bg-transparent p-0;
+  }
+
+  /* ─── Gradient text ──────────────────────────── */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+  }
+
+  /* ─── Divider ────────────────────────────────── */
+  .divider {
+    @apply border-t border-white/[0.06];
+  }
+}
+
+@layer utilities {
+  /* ─── Animations ─────────────────────────────── */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgba(99, 102, 241, 0.1); }
+  to { box-shadow: 0 0 40px rgba(99, 102, 241, 0.2); }
+}
+@keyframes shimmer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.3); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.animate-heart {
+  animation: heartBeat 0.4s ease-in-out;
+}
+
+/* Background gradient mesh */
+.bg-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(139, 92, 246, 0.06), transparent),
+    radial-gradient(ellipse 50% 30% at 20% 80%, rgba(99, 102, 241, 0.04), transparent);
+}
+
+/* Skeleton loading */
+.skeleton {
+  @apply animate-pulse rounded;
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
